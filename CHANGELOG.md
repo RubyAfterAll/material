@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.12
+
+*Release Date*: 3/19/2025
+
+- Deduplication for relationships
+
 ## 0.3.11
 
 *Release Date*: 3/19/2025

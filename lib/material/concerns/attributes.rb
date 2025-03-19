@@ -12,6 +12,7 @@ module Material
       memoize :formatted_attributes
       memoize :sorted_attribute_names
       memoize :relationship_attributes
+      memoize :unique_display_attributes
     end
 
     class_methods do
@@ -29,7 +30,23 @@ module Material
     end
 
     def display_attributes
-      (attribute_names + relationship_attributes).uniq
+      unique_display_attributes
+    end
+
+    def unique_display_attributes
+      [].tap do |attrs|
+        attribute_names.each do |attribute_name|
+          next if relationship_attribute?(attribute_name)
+
+          attrs << attribute_name
+        end
+
+        attrs.concat(relationship_attributes).uniq
+      end
+    end
+
+    def relationship_attribute?(attribute_name)
+      relationship_attributes.include?(attribute_name) || relationship_attributes.include?(attribute_name.chomp("_id"))
     end
 
     def attribute_values
@@ -42,7 +59,7 @@ module Material
 
     def formatted_attributes
       attribute_types.each_with_object({}) do |(attribute, attribute_type), hash|
-        next if relationship_attributes.include?(attribute)
+        next if relationship_attribute?(attribute)
         hash[attribute] = format_by_type(attribute_values[attribute], type: attribute_type)
       end
     end
@@ -60,3 +77,4 @@ module Material
     end
   end
 end
+
