@@ -42,6 +42,7 @@ module Material
 
     def formatted_attributes
       attribute_types.each_with_object({}) do |(attribute, attribute_type), hash|
+        next if relationship_attributes.include?(attribute)
         hash[attribute] = format_by_type(attribute_values[attribute], type: attribute_type)
       end
     end

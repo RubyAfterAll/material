@@ -1,10 +1,16 @@
 # Changelog
 
+## 0.3.11
+
+*Release Date*: 3/19/2025
+
+- Bugfix with relationship enhancement
+
 ## 0.3.10
 
 *Release Date*: 3/19/2025
 
-- Delegate missing on List to item_class for both instance and class (was just class before)
+- Relationship enhancement
 
 ## 0.3.9
 
