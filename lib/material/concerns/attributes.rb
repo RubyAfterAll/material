@@ -29,7 +29,7 @@ module Material
     end
 
     def display_attributes
-      attribute_names
+      (attribute_names + relationship_attributes).uniq
     end
 
     def attribute_values
@@ -55,7 +55,7 @@ module Material
     end
 
     def relationship_attributes
-      source_class.reflect_on_all_associations.map(&:foreign_key)
+      source_class.reflect_on_all_associations.map(&:name).map(&:to_s)
     end
   end
 end
