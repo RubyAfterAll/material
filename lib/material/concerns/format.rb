@@ -11,11 +11,11 @@ module Material
 
     class_methods do
       def format_date(date)
-        date.to_date.to_s(:long)
+        date&.to_date&.to_fs(:long)
       end
 
       def format_time(time)
-        time.to_s(:long)
+        time&.to_fs(:long)
       end
 
       def format_number(number)

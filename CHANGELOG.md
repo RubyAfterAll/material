@@ -2,6 +2,12 @@
 
 ## 0.3.12
 
+*Release Date*: 3/21/2025
+
+- Bugfix for formatting
+
+## 0.3.12
+
 *Release Date*: 3/19/2025
 
 - Deduplication for relationships
