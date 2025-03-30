@@ -73,7 +73,7 @@ module Material
     end
 
     def relationship_attributes
-      source_class.reflect_on_all_associations.map(&:name).map(&:to_s)
+      source_class.reflect_on_all_associations.reject { |assoc| assoc.macro == :has_many }.map(&:name).map(&:to_s)
     end
   end
 end

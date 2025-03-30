@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.14
+
+*Release Date*: 3/30/2025
+
+- Removing has many assocations
+
 ## 0.3.12
 
 *Release Date*: 3/21/2025
